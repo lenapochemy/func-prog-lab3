@@ -1,4 +1,4 @@
-(ns input
+(ns io-points
   (:require [interpolation :refer [->Point]])
   (:require [clojure.string :as str]))
 
@@ -24,4 +24,12 @@
         p2 (map str/trim p)
         p3 (map parse-point p2)]
     p3))
+
+(defn print-points [points]
+  (let [xs (map (fn [point] (:x point)) points)
+        ys (map (fn [point] (:y point)) points)
+        formatted-xs (map (fn [x] (format "%.2f" x)) xs)
+        formatted-ys (map (fn [y] (format "%.2f" y)) ys)]
+    (println (str/join "\t" formatted-xs))
+    (println (str/join "\t" formatted-ys))))
 
