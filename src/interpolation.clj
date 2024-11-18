@@ -8,8 +8,7 @@
     (->Point x  (+ (* a x 1.0) b))))
 
 (defn lagrange [points x]
-  (let [n (count points)
-        y (reduce (fn [acc i]
+  (let [y (reduce (fn [acc i]
                     (let [xi (:x (nth points i))
                           yi (:y (nth points i))
                           term (reduce (fn [prod j]
@@ -17,10 +16,10 @@
                                            prod
                                            (* prod (/ (- x (:x (nth points j))) (- xi (:x (nth points j)))))))
                                        1
-                                       (range n))]
+                                       (range 4))]
                       (+ acc (* yi term))))
                   0
-                  (range n))]
+                  (range 4))]
     (->Point x y)))
 
 (defn count-generating-points [first-point last-point step]
