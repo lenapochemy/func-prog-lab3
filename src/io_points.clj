@@ -15,7 +15,6 @@
             ((println "Not number input, exit.")
              (System/exit 0))
             (->Point x y)))
-
         ((println "Bad input, exit.")
          (System/exit 0))))))
 
@@ -32,4 +31,3 @@
         formatted-ys (map (fn [y] (format "%.2f" y)) ys)]
     (println (str/join "\t" formatted-xs))
     (println (str/join "\t" formatted-ys))))
-

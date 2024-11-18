@@ -30,15 +30,13 @@
   (let [point-count (count-generating-points (first points) (last points) step)]
     (take point-count (iterate (fn [x] (+ x step)) (:x (first points))))))
 
-(defn execute-linear [points]
-  (let [step 1
-        last2 (take-last 2 points)
+(defn execute-linear [points step]
+  (let [last2 (take-last 2 points)
         generated-points (generating-points last2 step)]
     (map (fn [x] (linear (first last2) (last last2) x)) generated-points)))
 
-(defn execute-lagrange [points]
-  (let [step 1
-        last4 (take-last 4 points)
+(defn execute-lagrange [points step]
+  (let [last4 (take-last 4 points)
         generated-points (generating-points last4 step)]
     (map (fn [x] (lagrange last4 x)) generated-points)))
 
