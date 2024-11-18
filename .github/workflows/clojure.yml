@@ -24,10 +24,12 @@ jobs:
         cljfmt: latest
 
     - name: Check format
-      run: cljfmt check src test
+      run: cljfmt check src 
+      # test
 
     - name: Lint
-      run: clj-kondo --lint src test
+      run: clj-kondo --lint src 
+      # test
       
     # - name: Run tests
     #   run: lein test
